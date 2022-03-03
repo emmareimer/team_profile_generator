@@ -1,0 +1,35 @@
+*{
+    font-family: 'Roboto', sans-serif;
+    margin: auto;
+}
+
+nav {
+    text-align: center;
+    background-color: #DCB1A8;
+    color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+main {
+    margin: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+a {
+    text-decoration: none;
+    color: #CF978B;
+}
+
+.card {
+    border: #DCB1A8 solid 5px;
+    padding: 10px;
+    margin: 20px;
+    width: fit-content;
+}
