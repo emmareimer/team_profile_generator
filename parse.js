@@ -32,13 +32,13 @@ const parser = ({manager, engineers, interns}) => {
     ${
         engineers.map(element => {
             return renderEngineer(element)
-        })
+        }).join("")
     }
 
     ${
         interns.map(element => {
             return renderIntern(element)
-        })
+        }).join("")
     }
 
     </main>
