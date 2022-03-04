@@ -50,7 +50,7 @@ const parser = ({manager, engineers, interns}) => {
 
 const renderEngineer = ({engineerName, engineerID, engineerEmail, engineerGithub, engineerGithubUsername}) => {
     return `
-    <div class="card">
+    <div class="engineer-card">
         <h2>${engineerName}</h2>
         <h3>Engineer</h3>
         <h4>ID: ${engineerID}</h4>
@@ -63,7 +63,7 @@ const renderEngineer = ({engineerName, engineerID, engineerEmail, engineerGithub
 // Create const for interns
 const renderIntern = ({internName, internEmail, internSchool}) => {
     return `
-    <div class="card">
+    <div class="intern-card">
         <h2>${internName}</h2>
         <h3>Intern</h3>
         <h4>Email: <a href="mailto: ${internEmail}">${internEmail}</a></h4>
