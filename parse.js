@@ -20,12 +20,12 @@ const parser = ({manager, engineers, interns}) => {
     <main>
 
     <div class="card">
-    <h2>${manager.teamManagerName}</h2>
+    <h2>${manager.getName()}</h2>
     <h3>Manager</h3>
         <section class="card-items">
-        <h4>ID: ${manager.employeeID}</h4>
-        <h4>Email: <a href="mailto: ${manager.email}">${manager.email}</a></h4>
-        <h4>Office Number: ${manager.officeNumber}</h4>
+        <h4>ID: ${manager.getId()}</h4>
+        <h4>Email: <a href="mailto: ${manager.getEmail()}">${manager.getEmail()}</a></h4>
+        <h4>Office Number: ${manager.getOfficeNumber()}</h4>
         </section>
     </div>
 
@@ -48,26 +48,27 @@ const parser = ({manager, engineers, interns}) => {
 };
 
 
-const renderEngineer = ({engineerName, engineerID, engineerEmail, engineerGithub, engineerGithubUsername}) => {
+const renderEngineer = (engineer) => {
     return `
     <div class="engineer-card">
-        <h2>${engineerName}</h2>
+        <h2>${engineer.getName()}</h2>
         <h3>Engineer</h3>
-        <h4>ID: ${engineerID}</h4>
-        <h4>Email: <a href="mailto: ${engineerEmail}">${engineerEmail}</a></h4>
-        <h4>Github: <a href ="${engineerGithub}" target="_blank">${engineerGithubUsername}</a></h4>
+        <h4>ID: ${engineer.getId()}</h4>
+        <h4>Email: <a href="mailto: ${engineer.getEmail()}">${engineer.getEmail()}</a></h4>
+        <h4>Github: <a href ="www.github.com/${engineer.getGithub()}" target="_blank">${engineer.getGithub()}</a></h4>
     </div>
     `
 }
 
 // Create const for interns
-const renderIntern = ({internName, internEmail, internSchool}) => {
+const renderIntern = (intern) => {
     return `
     <div class="intern-card">
-        <h2>${internName}</h2>
+        <h2>${intern.getName()}</h2>
         <h3>Intern</h3>
-        <h4>Email: <a href="mailto: ${internEmail}">${internEmail}</a></h4>
-        <h4>School: ${internSchool}</h4>
+        <h4>ID: ${intern.getId()}</h4>
+        <h4>Email: <a href="mailto: ${intern.getEmail()}">${intern.getEmail()}</a></h4>
+        <h4>School: ${intern.getSchool()}</h4>
     </div>
     `
 }

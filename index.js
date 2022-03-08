@@ -1,25 +1,9 @@
-// GIVEN a command-line application that accepts user input
-// WHEN I am prompted for my team members and their information
-// THEN an HTML file is generated that displays a nicely formatted team roster based on user input
-// WHEN I click on an email address in the HTML
-// THEN my default email program opens and populates the TO field of the email with the address
-// WHEN I click on the GitHub username
-// THEN that GitHub profile opens in a new tab
-// WHEN I start the application
-// THEN I am prompted to enter the team manager’s name, employee ID, email address, and office number
-// WHEN I enter the team manager’s name, employee ID, email address, and office number
-
-// THEN I am presented with a menu with the option to add an engineer or an intern or to finish building my team
-// WHEN I select the engineer option
-// THEN I am prompted to enter the engineer’s name, ID, email, and GitHub username, and I am taken back to the menu
-// WHEN I select the intern option
-// THEN I am prompted to enter the intern’s name, ID, email, and school, and I am taken back to the menu
-// WHEN I decide to finish building my team
-// THEN I exit the application, and the HTML is generated
-
 const inquirer = require("inquirer");
 const fs = require("fs");
 const parser = require("./parse");
+const manager = require("./utils/manager")
+const engineer = require("./utils/engineer")
+const intern = require("./utils/intern")
 
 let team = {
   manager: "",
@@ -33,7 +17,7 @@ const addManager = () => {
       {
         type: "input",
         name: "teamManagerName",
-        message: "What is your team manager's name?",
+        message: "What is your employee's name?",
       },
       {
         type: "input",
@@ -52,7 +36,7 @@ const addManager = () => {
       },
     ])
     .then((answers) => {
-      team.manager = answers;
+      team.manager = new manager(answers.teamManagerName, answers.employeeID, answers.email, answers.officeNumber);
       showMenu();
     });
 };
@@ -77,17 +61,12 @@ const addEngineer = () => {
       },
       {
         type: "input",
-        name: "engineerGithubUsername",
-        message: "What is the engineer's Github username?",
-      },
-      {
-        type: "input",
         name: "engineerGithub",
-        message: "What is the engineer's Github link?",
+        message: "What is the engineer's Github username?",
       },
     ])
     .then((answers) => {
-      team.engineers.push(answers);
+      team.engineers.push(new engineer(answers.engineerName, answers.engineerID, answers.engineerEmail, answers.engineerGithub));
       showMenu();
     });
 };
@@ -102,6 +81,11 @@ const addIntern = () => {
       },
       {
         type: "input",
+        name: "internID",
+        message: "What is the intern's ID?",
+      },
+      {
+        type: "input",
         name: "internEmail",
         message: "What is the intern's email address?",
       },
@@ -112,7 +96,7 @@ const addIntern = () => {
       },
     ])
     .then((answers) => {
-      team.interns.push(answers);
+      team.interns.push(new intern(answers.internName, answers.internID, answers.internEmail, answers.internSchool));
       showMenu();
     });
 };
