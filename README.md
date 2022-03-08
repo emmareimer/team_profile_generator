@@ -1,4 +1,4 @@
-# README Generator [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+# Team Profile Generator [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
   
 ## Description
 The Team Profile Generator can be used to create an HTML page that displays credentials of a work team.
@@ -6,8 +6,7 @@ The Team Profile Generator can be used to create an HTML page that displays cred
 ## Table of Contents
 - [Installation](#installation)
 - [Usage](#usage)
-- [Contributing](#contributing)
-- [Tests](#tests)
+- [Tests](#testing)
 - [Questions](#questions)
 - [Sources](#sources)
 
