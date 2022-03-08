@@ -17,7 +17,7 @@ const addManager = () => {
       {
         type: "input",
         name: "teamManagerName",
-        message: "What is your employee's name?",
+        message: "What is your name?",
       },
       {
         type: "input",
